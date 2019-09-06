@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Vectora";
+  src: url("#{$fonts_path}Vectora/VectoraLTStd-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: "Vectora";
+  src: url("#{$fonts_path}Vectora/VectoraLTStd-Roman.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: "Vectora";
+  src: url("#{$fonts_path}Vectora/VectoraLTStd-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Vectora Italic';
+    src: url("#{$fonts_path}Vectora/VectoraLTStd-LightItalic.otf") format("opentype");
+    font-weight: 300;
+    font-style: italic, oblique;
+}
+
+@font-face {
+    font-family: 'Vectora Italic';
+    src: url("#{$fonts_path}Vectora/VectoraLTStd-Italic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic, oblique;
+}
+
+@font-face {
+    font-family: 'Vectora Italic';
+    src: url("#{$fonts_path}Vectora/VectoraLTStd-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic, oblique;
+}

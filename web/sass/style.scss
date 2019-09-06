@@ -1,0 +1,173 @@
+
+$image_path: "../img/";
+$fonts_path: "../fonts/";
+
+$base_font: "Stellar";
+$base_font_size: 16px;
+
+$titles_font: "Electrolize";
+$titles_font_size: 24px;
+
+$buttons_font: "Nidus";
+$buttons_font_size: 14px;
+
+$instructions_font: "Stellar";
+$instructions_font_size: 14px;
+
+$prompt_font: "VT323";
+$prompt_font_size: 14px;
+
+@import "_vectora.scss";
+@import "_cyberpunk.scss";
+
+$base_font_color: #a1ecfb;
+$base_font_color_hover: #a1ecfb;
+
+$background_color: #000000;
+
+/* BASE LAYOUT */
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html{
+    height:100%; 
+    background-color: $background_color;
+    color: $base_font_color;
+}
+
+body{
+    margin:0;
+    padding:0;
+    font-size: $base_font_size;
+    height:100%;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background-color: #021114;
+    }
+    &::-webkit-scrollbar-thumb {
+        border: 1px solid #26dafd;
+        cursor: pointer;
+    }  
+    &::selection {
+        color: #021114;
+        text-shadow: none;
+        background-color: #26dafd;
+    }
+
+}
+
+header{
+    .course_title{
+        font-family: $titles_font, "sans-serif";
+        font-size: 2em;
+        text-align: center;
+
+    }
+}
+
+.container{
+    padding: 2em;
+}
+
+
+
+
+.room_item{
+    margin: 2em 1em;
+    padding: 2em;
+    border-color: #029dbb;
+    box-shadow: 0 0 4px rgba(2,157,187,0.65);
+
+    .title{
+        font-family: $titles_font, "sans-serif";
+        font-size: $titles_font_size;
+        color: #a1ecfb;
+        font-weight: bold;
+
+        margin: 0 0 20px;
+        transition: color 250ms ease-out;
+        text-shadow: 0 0 4px rgba(161,236,251,0.65);
+        text-transform: uppercase;
+
+    }
+
+    .description{
+        font-family: $base_font, "sans-serif";
+        font-size: $base_font_size;
+        color: #26dafd;
+        font-style: normal;
+
+        overflow: hidden;
+        transition: all 250ms ease-out;
+        line-height: 1.5;
+    }
+
+    .btn_start{
+        font-family: $buttons_font, "sans-serif";
+        font-size: $buttons_font_size;
+        text-transform: uppercase;
+        padding: 10px 20px;
+        border-color: #029dbb;
+        box-shadow: 0 0 4px rgba(2,157,187,0.65);
+        transition: all 250ms ease-in;
+        margin: 0.25em 0;
+        display: inline-block;
+
+        &:hover{
+            border-color: #26dafd;
+            box-shadow: 0 0 4px rgba(38,218,253,0.65);
+            cursor: pointer;
+        }
+    }
+
+}
+
+
+
+
+
+
+/*  HELPERS */
+
+.centrado-absoluto {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+.disable_scroll{
+    overflow: hidden;
+}
+
+
+.fixed-absoluto {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+.disable_link{
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+}
+
+
+
+
+
+
+

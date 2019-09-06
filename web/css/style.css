@@ -1,0 +1,184 @@
+@font-face {
+  font-family: "Vectora";
+  src: url("../fonts/Vectora/VectoraLTStd-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Vectora";
+  src: url("../fonts/Vectora/VectoraLTStd-Roman.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Vectora";
+  src: url("../fonts/Vectora/VectoraLTStd-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Vectora Italic";
+  src: url("../fonts/Vectora/VectoraLTStd-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: "Vectora Italic";
+  src: url("../fonts/Vectora/VectoraLTStd-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: "Vectora Italic";
+  src: url("../fonts/Vectora/VectoraLTStd-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: "Electrolize";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Electrolize"), local("Electrolize-Regular"), url("../fonts/Electrolize-Regular.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Nidus";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/nidsans-webfont.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Stellar";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Stellar-light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Stellar";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Stellar-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "VT323";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/VT323-Regular.ttf") format("truetype");
+}
+/* BASE LAYOUT */
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  height: 100%;
+  background-color: #000000;
+  color: #a1ecfb;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  height: 100%;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #021114;
+}
+body::-webkit-scrollbar-thumb {
+  border: 1px solid #26dafd;
+  cursor: pointer;
+}
+body::selection {
+  color: #021114;
+  text-shadow: none;
+  background-color: #26dafd;
+}
+
+header .course_title {
+  font-family: "Electrolize", "sans-serif";
+  font-size: 2em;
+  text-align: center;
+}
+
+.container {
+  padding: 2em;
+}
+
+.room_item {
+  margin: 2em 1em;
+  padding: 2em;
+  border-color: #029dbb;
+  box-shadow: 0 0 4px rgba(2, 157, 187, 0.65);
+}
+.room_item .title {
+  font-family: "Electrolize", "sans-serif";
+  font-size: 24px;
+  color: #a1ecfb;
+  font-weight: bold;
+  margin: 0 0 20px;
+  transition: color 250ms ease-out;
+  text-shadow: 0 0 4px rgba(161, 236, 251, 0.65);
+  text-transform: uppercase;
+}
+.room_item .description {
+  font-family: "Stellar", "sans-serif";
+  font-size: 16px;
+  color: #26dafd;
+  font-style: normal;
+  overflow: hidden;
+  transition: all 250ms ease-out;
+  line-height: 1.5;
+}
+.room_item .btn_start {
+  font-family: "Nidus", "sans-serif";
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-color: #029dbb;
+  box-shadow: 0 0 4px rgba(2, 157, 187, 0.65);
+  transition: all 250ms ease-in;
+  margin: 0.25em 0;
+  display: inline-block;
+}
+.room_item .btn_start:hover {
+  border-color: #26dafd;
+  box-shadow: 0 0 4px rgba(38, 218, 253, 0.65);
+  cursor: pointer;
+}
+
+/*  HELPERS */
+.centrado-absoluto {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.disable_scroll {
+  overflow: hidden;
+}
+
+.fixed-absoluto {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.disable_link {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+/*# sourceMappingURL=style.css.map */

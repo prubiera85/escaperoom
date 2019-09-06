@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Electrolize';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Electrolize'), local('Electrolize-Regular'), url("#{$fonts_path}Electrolize-Regular.ttf") format("truetype");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Nidus';
+    font-style: normal;
+    font-weight: 400;
+    src: url("#{$fonts_path}nidsans-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Stellar';
+    font-style: normal;
+    font-weight: 400;
+    src: url("#{$fonts_path}Stellar-light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Stellar';
+    font-style: normal;
+    font-weight: 700;
+    src: url("#{$fonts_path}Stellar-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'VT323';
+    font-style: normal;
+    font-weight: 700;
+    src: url("#{$fonts_path}VT323-Regular.ttf") format("truetype");
+}
