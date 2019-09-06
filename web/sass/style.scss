@@ -63,6 +63,12 @@ body{
         background-color: #26dafd;
     }
 
+    background-image: url("../img/glow.png");
+    transition: all 250ms ease-in;
+    background-repeat: repeat;
+    background-position: center top;
+    background-attachment: fixed;
+
 }
 
 header{
@@ -78,15 +84,94 @@ header{
     padding: 2em;
 }
 
+.button{
+    margin: 0;
+    border: none;
+    z-index: 2;
+    display: inline-block;
+    padding: 10px 20px;
+    outline: none;
+    position: relative;
+    font-size: 15.75px;
+    background: transparent;
+    transition: all 250ms ease-out;
+    line-height: 1;
+    user-select: none;
+    vertical-align: middle;
+    color: #acf9fb;
+    cursor: pointer;
+}
 
 
+.corner_box_outer{
+    position: relative;
+
+
+    background-color: rgba(6,43,45,0.65);
+
+    z-index: 3;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 250ms ease-in;
+}
+
+
+.corner_box{
+    position: relative;
+
+    display: block;
+    padding: 1px;
+    position: relative;
+    background-color: rgba(6,43,45,0.65);
+
+}
+
+
+
+.corner_line{
+    width: 8px;
+    height: 8px;
+    border-color: #acf9fb;
+    box-shadow: 0 0 4px -2px rgba(172,249,251,0.65);
+    z-index: 2;
+    opacity: 1;
+    position: absolute;
+    transition: all 250ms ease-in;
+    border-style: solid;
+}
+
+.corner_topleft{
+    left: -1px;
+    top: -1px;
+    border-width: 1px 0 0 1px;
+}
+
+.corner_bottomleft{
+    left: -1px;
+    bottom: -1px;
+    border-width: 0 0 1px 1px;
+}
+
+.corner_topright{
+    right: -1px;
+    top: -1px;
+    border-width: 1px 1px 0 0;
+}
+
+.corner_bottomright{
+    right: -1px;
+    bottom: -1px;
+    border-width: 0 1px 1px 0;
+
+}
 
 .room_item{
     margin: 2em 1em;
     padding: 2em;
     border-color: #029dbb;
     box-shadow: 0 0 4px rgba(2,157,187,0.65);
-
+    background-color: rgba(2,17,20,0.65);
     .title{
         font-family: $titles_font, "sans-serif";
         font-size: $titles_font_size;
@@ -121,6 +206,7 @@ header{
         transition: all 250ms ease-in;
         margin: 0.25em 0;
         display: inline-block;
+        letter-spacing: 1px;
 
         &:hover{
             border-color: #26dafd;
