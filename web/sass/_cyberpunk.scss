@@ -17,14 +17,14 @@
     font-family: 'Stellar';
     font-style: normal;
     font-weight: 400;
-    src: url("#{$fonts_path}Stellar-light.ttf") format("truetype");
+    src: url("#{$fonts_path}Stellar-light.otf") format("opentype");
 }
 
 @font-face {
     font-family: 'Stellar';
     font-style: normal;
     font-weight: 700;
-    src: url("#{$fonts_path}Stellar-Bold.ttf") format("truetype");
+    src: url("#{$fonts_path}Stellar-Bold.otf") format("opentype");
 }
 
 @font-face {

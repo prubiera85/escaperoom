@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Virtual Escape Room</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!-- SITE MAP -->
+    <script type="text/javascript" src='core.js'></script>
+
+    <!-- LEVELS DATA -->
+    <script type="text/javascript" src='games/game01.js'></script>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h2 class="game_title">Máquina 1: WGIBSON</h2>
+        </header>
+        
+        <section class="game_card" id="game_card_1">
+
+            <section class="story">
+                <p>Alguien está intentando liberar Neuromante... </p>
+                <p>¡Averigua de dónde procede este ataque y atrapa al culpable antes de que se te adelanten y cobren la recompensa!</p>
+            </section>
+    
+    
+            <section class="instructions">
+                <p>Instala la máquina virtual proporcionada y utiliza técnicas de pentesting para obtener las diferentes banderas que te permitirán avanzar en la historia y resolver la escape room.</p>
+            </section>
+
+            <section class="code_prompt">
+                <p class="warning">WARNING</p>
+                <p class="text">Introduce el código de acceso para continuar</p>
+                <input class="access_code_input" type="text" name="access_code">                
+                <div class="corner_box btn_validate">
+                    <div class="corner_line corner_topleft"></div>
+                    <div class="corner_line corner_topright"></div>
+                    <div>Validar código</div>
+                    <div class="corner_line corner_bottomleft"></div>
+                    <div class="corner_line corner_bottomright"></div>
+                </div>
+            </section>
+
+            <section class="navigation_bar">          
+
+                <div class="corner_box btn_link">
+                    <div class="corner_line corner_topleft"></div>
+                    <div class="corner_line corner_topright"></div>
+                    <div>Descargar máquina virtual</div>
+                    <div class="corner_line corner_bottomleft"></div>
+                    <div class="corner_line corner_bottomright"></div>
+                </div>
+
+                <div class="corner_box btn_link">
+                    <div class="corner_line corner_topleft"></div>
+                    <div class="corner_line corner_topright"></div>
+                    <div>Instrucciones de instalación</div>
+                    <div class="corner_line corner_bottomleft"></div>
+                    <div class="corner_line corner_bottomright"></div>
+                </div>
+
+                                
+                <div class="corner_box btn_continue">
+                    <div class="corner_line corner_topleft"></div>
+                    <div class="corner_line corner_topright"></div>
+                    <div>Continuar</div>
+                    <div class="corner_line corner_bottomleft"></div>
+                    <div class="corner_line corner_bottomright"></div>
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+    </div>
+
+
+
+
+    <!-- SCRIPTS -->
+
+    <script type="text/javascript" src='js/lib/jquery-3.1.1.min.js'></script>
+    <script type="text/javascript" src='js/reader/lib/routie.js'></script>
+
+    <script type="text/javascript" src='js/core.js'></script>
+
+
+</body>
+
+
+</html>

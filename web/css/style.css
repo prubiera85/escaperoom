@@ -51,13 +51,13 @@
   font-family: "Stellar";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/Stellar-light.ttf") format("truetype");
+  src: url("../fonts/Stellar-light.otf") format("opentype");
 }
 @font-face {
   font-family: "Stellar";
   font-style: normal;
   font-weight: 700;
-  src: url("../fonts/Stellar-Bold.ttf") format("truetype");
+  src: url("../fonts/Stellar-Bold.otf") format("opentype");
 }
 @font-face {
   font-family: "VT323";
@@ -78,7 +78,7 @@
 html {
   height: 100%;
   background-color: #000000;
-  color: #a1ecfb;
+  color: #26dafd;
 }
 
 body {
@@ -107,7 +107,8 @@ body::selection {
   background-color: #26dafd;
 }
 
-header .course_title {
+header .course_title,
+header .game_title {
   font-family: "Electrolize", "sans-serif";
   font-size: 2em;
   text-align: center;
@@ -133,16 +134,6 @@ header .course_title {
   vertical-align: middle;
   color: #acf9fb;
   cursor: pointer;
-}
-
-.corner_box_outer {
-  position: relative;
-  background-color: rgba(6, 43, 45, 0.65);
-  z-index: 3;
-  display: block;
-  position: relative;
-  overflow: hidden;
-  transition: background-color 250ms ease-in;
 }
 
 .corner_box {
@@ -228,6 +219,148 @@ header .course_title {
   letter-spacing: 1px;
 }
 .room_item .btn_start:hover {
+  border-color: #26dafd;
+  box-shadow: 0 0 4px rgba(38, 218, 253, 0.65);
+  cursor: pointer;
+}
+
+.game_card {
+  margin: 2em 1em;
+  padding: 0;
+}
+.game_card p {
+  margin: 0;
+  padding: 0;
+}
+.game_card .title {
+  font-family: "Electrolize", "sans-serif";
+  font-size: 24px;
+  color: #a1ecfb;
+  font-weight: bold;
+  margin: 0 0 20px;
+  transition: color 250ms ease-out;
+  text-shadow: 0 0 4px rgba(161, 236, 251, 0.65);
+  text-transform: uppercase;
+}
+.game_card .story {
+  padding: 1em;
+  margin: 1em 0;
+  font-family: "VT323", "sans-serif";
+  font-size: 28px;
+  color: #26dafd;
+  font-style: normal;
+  overflow: hidden;
+  transition: all 250ms ease-out;
+  line-height: 1.25em;
+}
+.game_card .instructions {
+  padding: 1em;
+  margin: 1em 0;
+  border-color: #029dbb;
+  box-shadow: 0 0 4px rgba(2, 157, 187, 0.65);
+  background-color: rgba(2, 17, 20, 0.65);
+  font-family: "Stellar", "sans-serif";
+  font-size: 16px;
+  color: #26dafd;
+  font-style: normal;
+  overflow: hidden;
+  transition: all 250ms ease-out;
+  line-height: 1.5;
+  letter-spacing: 0.65px;
+}
+.game_card .code_prompt {
+  margin: 1.5em 0;
+  font-family: "Stellar", "sans-serif";
+  font-size: 16px;
+  color: #26dafd;
+  font-style: normal;
+  overflow: hidden;
+  transition: all 250ms ease-out;
+  line-height: 1.5;
+  text-align: center;
+}
+.game_card .code_prompt .warning {
+  font-family: "Nidus", "sans-serif";
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FF291A;
+  text-shadow: 0px 0px 20px #FF2C2C;
+}
+.game_card .code_prompt .text {
+  margin-bottom: 1em;
+  font-family: "Nidus", "sans-serif";
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FF291A;
+  text-shadow: 0px 0px 20px #FF2C2C;
+}
+.game_card .code_prompt .btn_validate,
+.game_card .code_prompt .btn_continue {
+  font-family: "Nidus", "sans-serif";
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-color: #029dbb;
+  box-shadow: 0 0 4px rgba(2, 157, 187, 0.65);
+  transition: all 250ms ease-in;
+  margin: 0.5em;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+.game_card .code_prompt .btn_validate:hover,
+.game_card .code_prompt .btn_continue:hover {
+  border-color: #26dafd;
+  box-shadow: 0 0 4px rgba(38, 218, 253, 0.65);
+  cursor: pointer;
+}
+.game_card .code_prompt .access_code_input {
+  padding: 10px 20px;
+  margin: 0.25em 0;
+  display: inline-block;
+  background-color: rgba(2, 17, 20, 0.65);
+  border: solid 1px rgba(2, 157, 187, 0.65);
+  box-shadow: 0 0 4px rgba(2, 157, 187, 0.65);
+  font-family: "Nidus", "sans-serif";
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #26dafd;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 250ms ease-in;
+}
+.game_card .code_prompt .access_code_input:hover {
+  border-style: solid;
+  border-color: #029dbb;
+  box-shadow: 0 0 4px rgba(38, 218, 253, 0.65);
+}
+.game_card .navigation_bar {
+  margin: 1.5em 0;
+  font-family: "Stellar", "sans-serif";
+  font-size: 16px;
+  overflow: hidden;
+  transition: all 250ms ease-out;
+  line-height: 1.5;
+  text-align: center;
+}
+.game_card .navigation_bar .btn_continue,
+.game_card .navigation_bar .btn_link {
+  font-family: "Nidus", "sans-serif";
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-color: #029dbb;
+  box-shadow: 0 0 4px rgba(2, 157, 187, 0.65);
+  transition: all 250ms ease-in;
+  margin: 0.5em;
+  display: inline-block;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #26dafd;
+}
+.game_card .navigation_bar .btn_continue:hover,
+.game_card .navigation_bar .btn_link:hover {
   border-color: #26dafd;
   box-shadow: 0 0 4px rgba(38, 218, 253, 0.65);
   cursor: pointer;
