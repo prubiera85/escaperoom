@@ -213,7 +213,11 @@ header{
 
 
 
-
+.game_container{
+    max-width: 1024px;
+    display: block;
+    margin: 0 auto;
+}
 
 
 .game_card{

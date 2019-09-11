@@ -224,6 +224,12 @@ header .game_title {
   cursor: pointer;
 }
 
+.game_container {
+  max-width: 1024px;
+  display: block;
+  margin: 0 auto;
+}
+
 .game_card {
   margin: 2em 1em;
   padding: 0;
