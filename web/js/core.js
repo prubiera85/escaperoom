@@ -5,10 +5,12 @@
 
 var selectedGame = getURLParameter("game");
 var gameData;
+var progress;
+
 
 (function(){
 
-    // Deeplinking con routie
+/*     // Deeplinking con routie
 
     routie({
         '': function() {
@@ -32,7 +34,7 @@ var gameData;
 
         }
     });
-
+ */
     loadGameData(selectedGame);
     renderGame();
       
@@ -51,7 +53,11 @@ function loadGameData(selectedGame){
         default:
             gameData = game01;
         break;
-    }
+    };
+
+    console.log(gameData.cards.length);
+    progress = [];
+    
 }
 
 function renderGame(){
@@ -62,8 +68,6 @@ function renderGame(){
     $(".game_title").html(gameData.title);
 
     renderCard(0);
-    renderCard(1);
-
 }
 
 
@@ -77,6 +81,9 @@ function renderCard(card_number){
     var linksHtml = "";  
 
     if (thisCard.links){
+
+        linksHtml += `<section class="navigation_bar">`;              
+        
         thisCard.links.forEach (function(link) {
             linksHtml += `<a href="${link.href}" class="corner_box btn_link">
             <div class="corner_line corner_topleft"></div>
@@ -86,6 +93,16 @@ function renderCard(card_number){
             <div class="corner_line corner_bottomright"></div>
         </a>`;
         });
+
+        linksHtml += `<a class="corner_box btn_continue">
+            <div class="corner_line corner_topleft"></div>
+            <div class="corner_line corner_topright"></div>
+            <div>Continuar</div>
+            <div class="corner_line corner_bottomleft"></div>
+            <div class="corner_line corner_bottomright"></div>
+        </a>`;
+
+        linksHtml += `</section>`;
     }
 
     // Creamos el candado si existe
@@ -104,6 +121,7 @@ function renderCard(card_number){
                 <div class="corner_line corner_bottomleft"></div>
                 <div class="corner_line corner_bottomright"></div>
             </div>
+            <p class="feedback"></p>
         </section>`;
     }
 
@@ -115,26 +133,92 @@ function renderCard(card_number){
     <section class="story">${thisCard.story}</section>
     <section class="instructions">${thisCard.instructions}</section>`;
     cardHtml += `${accessHtml}`;        
-    cardHtml += `<section class="navigation_bar">          
-        ${linksHtml}
-        <a href="#" class="corner_box btn_continue">
-            <div class="corner_line corner_topleft"></div>
-            <div class="corner_line corner_topright"></div>
-            <div>Continuar</div>
-            <div class="corner_line corner_bottomleft"></div>
-            <div class="corner_line corner_bottomright"></div>
-        </a>
-    </section>`
-    ;
-
+    cardHtml += `${linksHtml}`;
     cardHtml += `</section>`;
-
+    
     // Añadimos la tarjeta de juego
+    $(".game_container").append(cardHtml);   
 
-    $(".game_container").append(cardHtml);
+    // Controles de los botones
+
+    var thisCardHandler = "#game_card_" + thisCard.id;
+
+    $(document).on("click", "#game_card_" + thisCard.id + " .btn_continue", function(){
+        console.log(thisCardHandler);
+        console.log(progress);
+        var nextCard = thisCard.id+1;
+        if (!thisCard.locked){
+            progress[thisCard.id] = true;
+            renderLine();
+            renderCard(nextCard);
+            $("#game_card_" + nextCard).addClass("animated fadeIn");
+            $('html, body').animate({
+                scrollTop: $("#game_card_" + nextCard).offset().top
+            }, 1500);
+
+            $(this).addClass("animated fadeOut faster");
+            setTimeout(function(){ $("#game_card_" + thisCard.id + " .btn_continue").remove(); }, 380);
+
+        }else{
+            unlockCard(thisCard);
+        }
+
+    }); 
+
+    $(document).on("click", "#game_card_" + thisCard.id + " .btn_validate", function(){
+        if (thisCard.locked){
+            unlockCard(thisCard);
+        }
+    }); 
+
+
 }
 
 
+
+
+function unlockCard(thisCard){
+    
+    var feedbackGranted = "Acceso concedido";
+    var feedbackDenied = "Acceso denegado, prueba otra vez";
+    var attempt = $("#game_card_" + thisCard.id + " .access_code_input").val().toUpperCase();
+    var nextCard = thisCard.id+1;
+    $("#game_card_" + thisCard.id + " .feedback").removeClass("animated faster flash");
+
+
+    if (thisCard.access_code==attempt){
+        // comprobar si hemos completado las cartas anteriores
+        $("#game_card_" + thisCard.id + " .btn_validate").remove();
+        $("#game_card_" + thisCard.id + " .access_code_input"). prop("disabled", true).css({"color":"#00ff00","text-shadow":"0px 0px 20px #00ff00"});
+        $("#game_card_" + thisCard.id + " .feedback").text(feedbackGranted).css({"color":"#00ff00","text-shadow":"0px 0px 20px #00ff00"});
+
+        renderLine();
+        renderCard(nextCard);
+
+        $("#game_card_" + nextCard).addClass("animated fadeIn");
+        $('html, body').animate({
+            scrollTop: $("#game_card_" + nextCard).offset().top
+        }, 1500);
+
+
+    }else{
+        $("#game_card_" + thisCard.id + " .access_code_input").val("");
+        $("#game_card_" + thisCard.id + " .feedback").text(feedbackDenied).css({"color":"#FF291A","text-shadow":"0px 0px 20px #FF2C2C"});
+        setTimeout(function(){
+            $("#game_card_" + thisCard.id + " .feedback").addClass("animated faster flash");
+        }, 175);
+    }
+}
+
+
+function renderLine(){
+    //$(".game_container").append("<div class='trans--grow horizontal_line2'></div>");
+    $(".game_container").append("<hr class='trans--grow horizontal_line1'></div>");
+    //$(".game_container").append("<hr class='trans--grow horizontal_line3'>");
+    setTimeout(function(){
+        $('.trans--grow').addClass('grow');
+    }, 175);
+}
 
 
 
@@ -155,16 +239,6 @@ $(document).on("click", ".btn_topic3", function(){
 /*******************************************************************/
 /*      FUNCIONES COMUNES                                          */
 /*******************************************************************/
-
-
-function hideAllCards(){
-    $(".game_card").hide();
-}
-
-function showCard(card_number){
-    $("#game_card_" + card_number).show();
-}
-
 
 /**
  * Retorna el valor de una variable GET especificada

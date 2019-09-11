@@ -14,8 +14,28 @@ var game01 = {
         {
             "id": 1,
             "story": "<p>¿A qué estás esperando?</p><p>Analiza ahora mismo las vulnerabilidades en los servicios para ver de dónde procede este ataque. ¡No podemos permitirnos que Neuromante sea liberada!</p>",
-            "instructions": "<p>Introduce la clave obtenida en la bandera 1 para continuar la historia</p>",
-            "access_code": "ABC"
+            "instructions": "<p>Introduce la clave obtenida en la bandera 1 para continuar la historia (ABC)</p>",
+            "access_code": "ABC",
+            "locked": true
+        },
+        {
+            "id": 2,
+            "story": "<p>¿A qué estás esperando?</p><p>Analiza ahora mismo las vulnerabilidades en los servicios para ver de dónde procede este ataque. ¡No podemos permitirnos que Neuromante sea liberada!</p>",
+            "instructions": "<p>Introduce la clave obtenida en la bandera 1 para continuar la historia (ABC)</p>",
+            "access_code": "ABC",
+            "locked": true
+        },
+        {
+            "id": 3,
+            "story": "<p>¿A qué estás esperando?</p><p>Analiza ahora mismo las vulnerabilidades en los servicios para ver de dónde procede este ataque. ¡No podemos permitirnos que Neuromante sea liberada!</p>",
+            "instructions": "<p>Introduce la clave obtenida en la bandera 1 para continuar la historia (ABC)</p>",
+            "access_code": "ABC",
+            "locked": true
+        },
+        {
+            "id": 4,
+            "story": "<p>THE END</p>",
+            "instructions": "<p>Enhorabuena, has llegado al final de la aventura.</p>"
         }
     ]
 }
