@@ -3,65 +3,70 @@
     Oneclick 2019
  *******************************************************************/
 
-var selectedGame = getURLParameter("game");
+var selectedGame = getURLParameter("id");
 var gameData;
 var progress;
 
 
-(function(){
+(function () {
 
-/*     // Deeplinking con routie
-
-    routie({
-        '': function() {
-            //hideAllCards();
-        }, 
-
-        'start': function() {
-           
-        }, 
-        
-        'home': function() {
-   
-        },
-
-
-        'topic/:topic': function(topic) {
-
-        },
-
-        'listening/:topic': function(topic) {
-
-        }
-    });
- */
     loadGameData(selectedGame);
     renderGame();
-      
- 
+
+    // Controla el scroll para mostrar el botón de volver arriba
+    window.onscroll = function () { scrollManager() };
+
 }());
 
 
-function loadGameData(selectedGame){
-    switch(selectedGame){
+
+
+
+function renderLine() {
+    $(".game_container").append("<hr class='trans--grow horizontal_line'></div>");
+    setTimeout(function () {
+        $('.trans--grow').addClass('grow');
+    }, 175);
+}
+
+
+function scrollManager() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        $("#btn_scroll_top").show();
+    } else {
+        $("#btn_scroll_top").hide();
+    }
+}
+
+function scrollToTop() {
+    $('html, body').animate({
+        scrollTop: $("html").offset().top
+    }, 500);
+}
+
+
+
+
+function loadGameData(selectedGame) {
+    switch (selectedGame) {
         case 1:
             gameData = game01;
-        break;
+            break;
         case 2:
             gameData = game02;
-        break;
+            break;
         default:
             gameData = game01;
-        break;
+            break;
     };
 
     console.log(gameData.cards.length);
     progress = [];
-    
+
 }
 
-function renderGame(){
-    
+function renderGame() {
+
     console.log(gameData.title);
     console.log(gameData.description);
 
@@ -72,19 +77,19 @@ function renderGame(){
 
 
 
-function renderCard(card_number){
+function renderCard(card_number) {
 
     var thisCard = gameData.cards[card_number];
 
     // Creamos los botones de enlaces si existen 
 
-    var linksHtml = "";  
+    var linksHtml = "";
 
-    if (thisCard.links){
+    if (thisCard.links) {
 
-        linksHtml += `<section class="navigation_bar">`;              
-        
-        thisCard.links.forEach (function(link) {
+        linksHtml += `<section class="link_bar">`;
+
+        thisCard.links.forEach(function (link) {
             linksHtml += `<a href="${link.href}" class="corner_box btn_link">
             <div class="corner_line corner_topleft"></div>
             <div class="corner_line corner_topright"></div>
@@ -109,7 +114,7 @@ function renderCard(card_number){
 
     var accessHtml = "";
 
-    if (thisCard.access_code){
+    if (thisCard.access_code) {
         accessHtml += `<section class="code_prompt">
             <p class="warning">WARNING</p>
             <p class="text">Introduce el código de acceso para continuar</p>
@@ -132,22 +137,22 @@ function renderCard(card_number){
     cardHtml += `<section class="game_card" id="game_card_${thisCard.id}">
     <section class="story">${thisCard.story}</section>
     <section class="instructions">${thisCard.instructions}</section>`;
-    cardHtml += `${accessHtml}`;        
+    cardHtml += `${accessHtml}`;
     cardHtml += `${linksHtml}`;
     cardHtml += `</section>`;
-    
+
     // Añadimos la tarjeta de juego
-    $(".game_container").append(cardHtml);   
+    $(".game_container").append(cardHtml);
 
     // Controles de los botones
 
     var thisCardHandler = "#game_card_" + thisCard.id;
 
-    $(document).on("click", "#game_card_" + thisCard.id + " .btn_continue", function(){
+    $(document).on("click", "#game_card_" + thisCard.id + " .btn_continue", function () {
         console.log(thisCardHandler);
         console.log(progress);
-        var nextCard = thisCard.id+1;
-        if (!thisCard.locked){
+        var nextCard = thisCard.id + 1;
+        if (!thisCard.locked) {
             progress[thisCard.id] = true;
             renderLine();
             renderCard(nextCard);
@@ -157,19 +162,19 @@ function renderCard(card_number){
             }, 1500);
 
             $(this).addClass("animated fadeOut faster");
-            setTimeout(function(){ $("#game_card_" + thisCard.id + " .btn_continue").remove(); }, 380);
+            setTimeout(function () { $("#game_card_" + thisCard.id + " .btn_continue").remove(); }, 380);
 
-        }else{
+        } else {
             unlockCard(thisCard);
         }
 
-    }); 
+    });
 
-    $(document).on("click", "#game_card_" + thisCard.id + " .btn_validate", function(){
-        if (thisCard.locked){
+    $(document).on("click", "#game_card_" + thisCard.id + " .btn_validate", function () {
+        if (thisCard.locked) {
             unlockCard(thisCard);
         }
-    }); 
+    });
 
 
 }
@@ -177,20 +182,20 @@ function renderCard(card_number){
 
 
 
-function unlockCard(thisCard){
-    
+function unlockCard(thisCard) {
+
     var feedbackGranted = "Acceso concedido";
     var feedbackDenied = "Acceso denegado, prueba otra vez";
     var attempt = $("#game_card_" + thisCard.id + " .access_code_input").val().toUpperCase();
-    var nextCard = thisCard.id+1;
+    var nextCard = thisCard.id + 1;
     $("#game_card_" + thisCard.id + " .feedback").removeClass("animated faster flash");
 
 
-    if (thisCard.access_code==attempt){
+    if (thisCard.access_code == attempt) {
         // comprobar si hemos completado las cartas anteriores
         $("#game_card_" + thisCard.id + " .btn_validate").remove();
-        $("#game_card_" + thisCard.id + " .access_code_input"). prop("disabled", true).css({"color":"#00ff00","text-shadow":"0px 0px 20px #00ff00"});
-        $("#game_card_" + thisCard.id + " .feedback").text(feedbackGranted).css({"color":"#00ff00","text-shadow":"0px 0px 20px #00ff00"});
+        $("#game_card_" + thisCard.id + " .access_code_input").prop("disabled", true).css({ "color": "#00ff00", "text-shadow": "0px 0px 20px #00ff00" });
+        $("#game_card_" + thisCard.id + " .feedback").text(feedbackGranted).css({ "color": "#00ff00", "text-shadow": "0px 0px 20px #00ff00" });
 
         renderLine();
         renderCard(nextCard);
@@ -201,24 +206,19 @@ function unlockCard(thisCard){
         }, 1500);
 
 
-    }else{
+    } else {
         $("#game_card_" + thisCard.id + " .access_code_input").val("");
-        $("#game_card_" + thisCard.id + " .feedback").text(feedbackDenied).css({"color":"#FF291A","text-shadow":"0px 0px 20px #FF2C2C"});
-        setTimeout(function(){
+        $("#game_card_" + thisCard.id + " .feedback").text(feedbackDenied).css({ "color": "#FF291A", "text-shadow": "0px 0px 20px #FF2C2C" });
+        setTimeout(function () {
             $("#game_card_" + thisCard.id + " .feedback").addClass("animated faster flash");
         }, 175);
     }
 }
 
 
-function renderLine(){
-    //$(".game_container").append("<div class='trans--grow horizontal_line2'></div>");
-    $(".game_container").append("<hr class='trans--grow horizontal_line1'></div>");
-    //$(".game_container").append("<hr class='trans--grow horizontal_line3'>");
-    setTimeout(function(){
-        $('.trans--grow').addClass('grow');
-    }, 175);
-}
+
+
+
 
 
 
@@ -229,10 +229,10 @@ function renderLine(){
 /*      BOTONES                                                    */
 /*******************************************************************/
 
-$(document).on("click", ".btn_topic3", function(){
+$(document).on("click", ".btn_topic3", function () {
     selectedTopic = 3;
     console.log("click en topic3")
-}); 
+});
 
 
 
