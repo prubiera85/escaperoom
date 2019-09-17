@@ -314,6 +314,9 @@ header .game_title {
   transition: all 250ms ease-out;
   line-height: 1.25em;
 }
+.game_card .story p {
+  margin: 0.5em 0;
+}
 .game_card .instructions {
   padding: 1em;
   margin: 1em 0;
