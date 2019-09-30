@@ -7,7 +7,7 @@ var game01 = {
             "story": "<p>Tu misión es impedir que la organización de hackers conocidos como Freesiders libere a Neuromante, la Inteligencia Artificial que podría provocar el colapso de la sociedad actual y de paso, cobrar una sustanciosa recompensa de 4,200,000€.</p><p>¡Averigua de dónde procede el ataque y atrapa al culpable antes de que se te adelanten!</p>",
             "instructions": "<p>Instala la máquina virtual proporcionada y utiliza técnicas de pentesting para obtener las diferentes banderas que te permitirán avanzar en la historia y resolver la escape room.</p>",
             "links": [
-                {"txt": "Descargar máquina", "href": "https://drive.google.com/uc?id=1OGv0dTJrJ2AnsLEp85NjTrGCPiiRTqG5&export=download"},
+                {"txt": "Descargar máquina", "href": "https://drive.google.com/open?id=1WeNVfTCsM8FzklnMZh6xe0fm7PtLHkSw"},
                 {"txt": "Instrucciones de instalación", "href": "resources/instrucciones_de_instalacion.pdf"}
             ]
         },
@@ -59,4 +59,4 @@ var game01 = {
             "instructions": "<p>Enhorabuena, has llegado al final de la aventura.</p>"
         }
     ]
-}
+};

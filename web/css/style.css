@@ -407,6 +407,19 @@ header .game_title {
   border-color: #029dbb;
   box-shadow: 0 0 4px rgba(38, 218, 253, 0.65);
 }
+.game_card .code_prompt .multiple_lock {
+  display: flex;
+  flex-wrap: wrap;
+}
+.game_card .code_prompt .multiple_lock .lock {
+  display: flex;
+  flex-direction: column;
+  max-width: 18%;
+  margin: 1%;
+}
+.game_card .code_prompt .multiple_lock .access_code_input {
+  margin-bottom: 10px;
+}
 .game_card .link_bar {
   margin: 1.5em 0;
   font-family: "Stellar", "sans-serif";

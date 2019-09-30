@@ -416,6 +416,24 @@ header{
                 border-color: #029dbb;
                 box-shadow: 0 0 4px rgba(38,218,253,0.65);
             }
+
+        }
+
+
+        .multiple_lock{
+            display: flex;
+            flex-wrap: wrap;
+
+            .lock{
+                display: flex;
+                flex-direction: column;
+                max-width: 18%;
+                margin: 1%;
+            }
+
+            .access_code_input{
+                margin-bottom: 10px;
+            }
         }
 
     }
