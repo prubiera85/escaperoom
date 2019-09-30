@@ -366,7 +366,7 @@ function unlockMultipleCard(thisLockId) {
     if (solved==gameData.access_codes.length){
         console.log("JUEGO TERMINADO");
         $(".feedback").html(feedbackGrantedFinal).css({ "color": "#00ff00", "text-shadow": "0px 0px 20px #00ff00" });
-        $( "#game_card_1" ).next().remove();
+        $( "#game_card_1 .link_bar" ).remove();
         $( "#game_card_2" ).next().remove();
         $( "#game_card_2" ).remove();
         $( "#game_card_3" ).next().remove();
@@ -377,7 +377,7 @@ function unlockMultipleCard(thisLockId) {
         $( "#game_card_5" ).remove();
         $( "#game_card_6" ).next().remove();
         $( "#game_card_6" ).remove();
-        $(".feedback").after('<section class="story"><p>¡Felicidades, has descubierto las cinco contraseñas! ¡El futuro de Vintageware está asegurado!</p></section><section class="instructions">Enhorabuena, has llegado al final de la aventura.</section>');
+        $(".feedback").after('<section class="game_card"><section class="story"><p>¡Felicidades, has descubierto las cinco contraseñas! ¡El futuro de Vintageware está asegurado!</p></section><section class="instructions">Enhorabuena, has llegado al final de la aventura.</section></section>');
     }
 
 }
