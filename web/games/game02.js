@@ -2,14 +2,14 @@ var game02 = {
     "multiple_lock": true,
     "title": "Escape Room 2: CONDECERO",
     "description": "El fundador de la empresa Vintageware, Desmond Wester Yutan, ha muerto. La compañia ahora desea el acceso a todos los secretos que oculta la base de datos del difunto Desmond, pero está protegida por un factor de cinco contraseñas que nadie de la empresa conoce. Han recurrido a tus servicios para que penetres en su equipo personal y recuperes dichas claves.",
-    "access_codes": ["MIK3LAN63L","HO34TIO5","L30NARD0D","ESM4SDEL0QUEP4R3C3","MYOLD53CR3T"],
+    "access_codes": ["MIK3LAN63L","HOR4TIO5","L30NARD0D","ESM4SDEL0QUEP4R3C3","MYOLD53CR3T"],
     "cards":[
         {
             "id": 0,
             "story": "<p>Desmond Wester Yutan ha muerto, dejando a su compañía Vintageware sin acceso a la base de datos que contiene los archivos confidenciales de la empresa.</p><p>¡Averigua las cinco contraseñas con las que acceder a los secretos de la empresa!</p>",
-            "instructions": "<p>Instala la máquina virtual proporcionada y utiliza técnicas de pentesting de forma remota para descubrir las diferentes banderas que te permitirán resolver la escape room. Puedes ir pidiendo pistas hasta desbloquear los 5 candados. (MIK3LAN63L, HO34TIO5, L30NARD0D, ESM4SDEL0QUEP4R3C3, MYOLD53CR3T)</p>",
+            "instructions": "<p>Instala la máquina virtual proporcionada y utiliza técnicas de pentesting de forma remota para descubrir las diferentes banderas que te permitirán resolver la escape room. Puedes ir pidiendo pistas hasta desbloquear los 5 candados. (MIK3LAN63L, HOR4TIO5, L30NARD0D, ESM4SDEL0QUEP4R3C3, MYOLD53CR3T)</p>",
             "links": [
-                {"txt": "Descargar máquina", "href": "https://drive.google.com/open?id=1t9piTFUUzU3thh4CeECoPWeQKX0KQjRg"},
+                {"txt": "Descargar máquina", "href": "resources/CONDECERO.zip"},
                 {"txt": "Instrucciones de instalación", "href": "resources/instrucciones_de_instalacion.pdf"}
             ]
         },
