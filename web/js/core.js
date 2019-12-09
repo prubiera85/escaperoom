@@ -94,7 +94,7 @@ function renderCard(card_number) {
         linksHtml += `<section class="link_bar">`;
 
         thisCard.links.forEach(function (link) {
-            linksHtml += `<a href="${link.href}" class="corner_box btn_link">
+            linksHtml += `<a href="${link.href}" class="corner_box btn_link" target="_blank">
             <div class="corner_line corner_topleft"></div>
             <div class="corner_line corner_topright"></div>
             <div>${link.txt}</div>
@@ -114,6 +114,22 @@ function renderCard(card_number) {
         linksHtml += `</section>`;
     }
 
+    if (thisCard.help) {
+
+        linksHtml += `<section class="link_bar">`;
+
+        thisCard.help.forEach(function (link) {
+            linksHtml += `<a href="${link.href}" class="corner_box btn_link" target="_blank">
+            <div class="corner_line corner_topleft"></div>
+            <div class="corner_line corner_topright"></div>
+            <div>${link.txt}</div>
+            <div class="corner_line corner_bottomleft"></div>
+            <div class="corner_line corner_bottomright"></div>
+        </a>`;
+        });
+
+        linksHtml += `</section>`;
+    }
 
     if (thisCard.hint || thisCard.locker) {
 
@@ -231,7 +247,7 @@ function renderCard(card_number) {
 
     cardHtml += `<section class="game_card" id="game_card_${thisCard.id}">`;
 
-    if (!thisCard.locker){
+    if (!thisCard.locker) {
         cardHtml += `<section class="story">${thisCard.story}</section>
         <section class="instructions">${thisCard.instructions}</section>`;
     }
@@ -253,7 +269,7 @@ function renderCard(card_number) {
         console.log(progress);
         var nextCard = thisCard.id + 1;
         if (!thisCard.locked) {
-            if (!thisCard.hint || !thisCard.locker){
+            if (!thisCard.hint || !thisCard.locker) {
                 //progress[thisCard.id] = true;
             }
             renderLine();
@@ -276,8 +292,8 @@ function renderCard(card_number) {
         if (thisCard.locked) {
             unlockCard(thisCard);
         }
-        if (gameData.multiple_lock){
-            var thisLockId = this.id.replace("btn","");
+        if (gameData.multiple_lock) {
+            var thisLockId = this.id.replace("btn", "");
             unlockMultipleCard(thisLockId);
         }
     });
@@ -337,7 +353,7 @@ function unlockMultipleCard(thisLockId) {
     var nextCard = thisLockId + 1;
     $(".feedback").removeClass("animated faster flash");
     var thisCode = thisLockId - 1;
-    
+
     if (gameData.access_codes[thisCode] == attempt) {
         // comprobar si hemos completado las cartas anteriores
         $("#code" + thisLockId).prop("disabled", true).css({ "color": "#00ff00", "text-shadow": "0px 0px 20px #00ff00" });
@@ -354,29 +370,29 @@ function unlockMultipleCard(thisLockId) {
     }
 
     // Comprobamos si se han desbloqueado todas las cerraduras
-   
-    solved=0;
 
-    for (i=0; i<gameData.access_codes.length; i++){
-        if (progress[i] == true){
-            solved ++;
+    solved = 0;
+
+    for (i = 0; i < gameData.access_codes.length; i++) {
+        if (progress[i] == true) {
+            solved++;
         }
     }
 
-    if (solved==gameData.access_codes.length){
+    if (solved == gameData.access_codes.length) {
         console.log("JUEGO TERMINADO");
         $(".feedback").html(feedbackGrantedFinal).css({ "color": "#00ff00", "text-shadow": "0px 0px 20px #00ff00" });
-        $( "#game_card_1 .link_bar" ).remove();
-        $( "#game_card_2" ).next().remove();
-        $( "#game_card_2" ).remove();
-        $( "#game_card_3" ).next().remove();
-        $( "#game_card_3" ).remove();
-        $( "#game_card_4" ).next().remove();
-        $( "#game_card_4" ).remove();
-        $( "#game_card_5" ).next().remove();
-        $( "#game_card_5" ).remove();
-        $( "#game_card_6" ).next().remove();
-        $( "#game_card_6" ).remove();
+        $("#game_card_1 .link_bar").remove();
+        $("#game_card_2").next().remove();
+        $("#game_card_2").remove();
+        $("#game_card_3").next().remove();
+        $("#game_card_3").remove();
+        $("#game_card_4").next().remove();
+        $("#game_card_4").remove();
+        $("#game_card_5").next().remove();
+        $("#game_card_5").remove();
+        $("#game_card_6").next().remove();
+        $("#game_card_6").remove();
         $(".feedback").after('<section class="game_card"><section class="story"><p>¡Felicidades, has descubierto las cinco contraseñas! ¡El futuro de Vintageware está asegurado!</p></section><section class="instructions">Enhorabuena, has llegado al final de la aventura.</section></section>');
     }
 
